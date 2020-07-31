@@ -1,0 +1,16 @@
+<html>
+    <head>
+{%load static %}
+    </head>
+    <body>
+    <h1>file upload</h1>
+    <br>
+        <form  method="POST" enctype="multipart/form-data">
+            {%csrf_token%}
+            <!-- <input type="text" placeholder="document",id='file_name'>
+            <input type="file" placeholder="file upload",id='upload'> -->
+            {{user.as_table}}
+            <input type="submit">
+        </form>
+    </body>
+</html>

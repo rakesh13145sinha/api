@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{%extends 'templates/test1/home.html'%}
+{%block tempfile%}
+<h4>Temporary data upload </h4>
+<!--inserting  temporary files like video audio  -->
+            <a href="/home">Home</a>
+            <br>
+            <br>
+            <hr>
+            <form method="POST" enctype="multipart/form-data">
+                {%csrf_token%}<span>discription</span>
+                <input type="text" name="discription" id="name" required><BR><BR>
+               <span>files:&nbsp;</span> <input type="file" name="myfile" id="choose" required ><br><br>
+                <input type="submit" value="submit"> 
+            </form>
+            <br>
+            <br>
+            {% if uploaded_file_url %}
+    <p>File uploaded at: <a href="{{ uploaded_file_url }}">{{ uploaded_file_url }}</a></p>
+    {%else%}
+    <h5>upload the video</h5>
+  {% endif %}
+
+{%endblock%}
+{%block scripts%}
+<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+<script> 
+$(document).ready(function(){
+  $("#choose").mouseover(function(){
+        $("a").css('color','green');
+  });
+
+  $("#choose").mouseout(function(){
+        $("a").css({
+                  "color":"red",
+                  
+
+        });
+  });
+
+}) ;
+  
+</script>
+{%endblock%}

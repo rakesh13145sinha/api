@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+{%load static %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <title>{% block title %}trancoding {% endblock %}</title>
+    </head>
+    <body id="loading" onload="loading()">
+    <h1>Home page</h1>
+    <br>
+    <hr>
+    {%block links%}
+        <a href="/upload">WITH_OUT_COMPRESSION</a><br>
+       
+        <a href="/temp">COMPRESSION</a><br>
+        
+        {%endblock%}
+        <hr><br>
+        {%block containt%}
+        <table border="2px solid">
+            <tr>
+                
+                <th>FILE UPLOAD</th>
+                <th>FILE NAME</th>
+                <th>DELETE</th>
+                
+            </tr>
+            <tbody>
+                {%for data in uploaded_data%}
+                <tr>
+                    <td>{{data.description}}</td>
+                    <td>{{data.document}}</td>
+                    <td><a href="/delete/{{data.id}}">delete</a></td>
+                    
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+        {%endblock%}
+        <hr>
+        {%block tempfile %}
+        {%endblock%}
+        {%block form %}
+        {%endblock%}
+        {%block scripts%}
+        <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+            <script>
+            //          function loading(){
+            //       alert("page is loading");
+            //   }
+              $(document).ready(function(){
+                  $('h1').mouseover(function(){
+
+                    $(this).css({"color":"red"})
+                  });
+
+
+
+              });   
+            
+            </script>
+        {%endblock%}
+
+    </body>
+</html>

@@ -1,0 +1,15 @@
+<html>
+    <head>
+{%load static %}
+    </head>
+    <body>
+    <h1>file upload</h1>
+    <br>
+        <form  method="POST">
+            {%csrf_token%}
+            
+            {{user.as_p}}
+            <input type="submit">
+        </form>
+    </body>
+</html>
