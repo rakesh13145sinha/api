@@ -15,6 +15,7 @@
         <a href="/upload">WITH_OUT_COMPRESSION</a><br>
        
         <a href="/temp">COMPRESSION</a><br>
+        <a href="/decode">DECOMPRESSION</a>
         
         {%endblock%}
         <hr><br>
@@ -25,14 +26,16 @@
                 <th>FILE UPLOAD</th>
                 <th>FILE NAME</th>
                 <th>DELETE</th>
+                <th>VIDEO</th>
                 
             </tr>
             <tbody>
                 {%for data in uploaded_data%}
                 <tr>
-                    <td>{{data.description}}</td>
-                    <td>{{data.document}}</td>
-                    <td><a href="/delete/{{data.id}}">delete</a></td>
+                    <td>{{data.id}}</td>
+                    <td>{{data.document.name}}</td>
+                    <td><a href="{% url 'delete files' data.id %}">Delete</a></td>
+                    <td><a href="{% url 'play video' data.id %}">PLAY</a></td>
                     
                 </tr>
                 {%endfor%}

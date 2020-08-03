@@ -7,11 +7,12 @@
             <br>
             <br>
             <hr>
-            <form method="POST" enctype="multipart/form-data">
-                {%csrf_token%}<span>discription</span>
-                <input type="text" name="discription" id="name" required><BR><BR>
-               <span>files:&nbsp;</span> <input type="file" name="myfile" id="choose" required ><br><br>
-                <input type="submit" value="submit"> 
+            <form method="POST" enctype="multipart/form-data" class="form-group">
+              
+                {%csrf_token%}<label for="name">discription</label>
+                <input type="text" name="discription" id="name" required class="form-control"><BR><BR>
+               <label for="chooce"> file</label><input type="file" name="myfile" id="choose"  required  class="form-control"><br><br>
+                <input type="submit" value="submit" class="btn btn-success"> 
             </form>
             <br>
             <br>
